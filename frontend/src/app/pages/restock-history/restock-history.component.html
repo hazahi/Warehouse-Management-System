@@ -1,0 +1,48 @@
+<div class="centered-content">
+    <div class="product-manager-container">
+        <div class="sidebar has-background-white">
+            <h1 class="title has-text-primary">
+                Menu
+            </h1>
+            <div class="menu">
+                <a class="menu-item" routerLink="/">
+                    <p>Products</p>
+                </a>
+                <a class="menu-item is-active" routerLink="/restockhistory">
+                    <p>Restock History</p>
+                </a>
+                <a class="menu-item" routerLink="/task-list">
+                    <p>Tasks</p>
+                </a>
+            </div>
+            <button class="button is-primary has-text-white" (click)="logout()"><i class="fas fa-sign-out-alt"></i> &nbsp;Logout</button>
+        </div>
+
+        <div class="product-list-header-container has-background-light">
+            
+            <h1 class="title has-text-primary">
+                Products
+            </h1>
+            <div class="field has-addons">
+                <div class="control is-expanded">
+                  <input #searchText class="input" type="text" placeholder="Search">
+                </div>
+                <div class="control">
+                  <a class="button is-primary has-text-white" >
+                    Search
+                  </a>
+                </div>
+              </div>
+              <div class="product-list-container">
+                <div class="restock" *ngFor="let restock of restocks">
+                    <!--<p>{{restock.entryID}}</p>
+                    <p>{{restock.employeeID}}</p>-->
+                    <p>Product ID:{{restock.productID}}</p>
+                    <p>Amount Restocked:{{restock.amountRestocked}}</p>
+                    <p>Restock Date:{{restock.restockDate}}</p>
+                </div>
+            </div>
+            </div>
+            
+    </div>
+</div>

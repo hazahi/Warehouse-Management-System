@@ -1,0 +1,56 @@
+<div class="centered-content">
+    <div class="product-manager-container">
+        <div class="sidebar has-background-white">
+            <h1 class="title has-text-primary">
+                Menu
+            </h1>
+            <div class="menu">
+                <a class="menu-item" routerLink="/">
+                    <p>Products</p>
+                </a>
+                <a *ngIf="checkRestockHistoryButton()" class="menu-item" routerLink="/restockhistory">
+                    <p>Restock History</p>
+                </a>
+                <a class="menu-item is-active" routerLink="/task-list">
+                    <p>Tasks</p>
+                </a>
+            </div>
+            <button class="button is-primary has-text-white" (click)="logout()"><i class="fas fa-sign-out-alt"></i> &nbsp;Logout</button>
+        </div>
+
+        <div class="task-list-header-container has-background-light">
+            <button *ngIf="checkNewTaskButton()" class="newTask button is-primary is-medium has-text-white" routerLink="/new-task">
+                +New Task
+            </button>
+            <h1 class="title has-text-primary">
+                Task List
+            </h1>
+            
+            <div class="field">
+                Show:
+                <div class="control">
+                    <label class="radio">
+                      <input type="radio" name="completeState" (click)="loadPending()" checked>
+                      Pending
+                    </label>
+                    <label class="radio">
+                      <input type="radio" name="completeState" (click)="loadCompleted()">
+                      Completed
+                    </label>
+                  </div>
+              </div>
+              <div class="product-list-container">
+                <div class="task" *ngFor="let task of tasks"  [routerLink]="['/task-preview',task.taskID]">
+                    <p>Task ID:&nbsp;{{task.taskID}}</p>
+                    <div *ngIf="!task?.complete" >
+                    <p *ngIf="task?.taskFinisherID!=0">In progress...<i class="fas fa-user-check"></i></p></div>
+                    <div *ngIf="task?.complete"><p>Completed at:&nbsp;{{task.completionDate}}</p>   </div>
+                                   
+                </div>
+            </div>
+            </div>
+            
+    </div>
+</div>
+
+

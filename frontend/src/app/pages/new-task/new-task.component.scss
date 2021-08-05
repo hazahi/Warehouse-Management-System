@@ -1,0 +1,84 @@
+@import '../../../main-style.scss';
+.modal-box{
+    min-height: 500px;
+    width: 100%;
+    max-width: 1000px;
+    background: white;
+    border-radius: 5px;
+    padding:3%;
+
+}
+.productsToPrepareList{
+    min-height: 200px;
+    width: 100%;
+    max-width: 1000px;
+    overflow-y: scroll;
+    background: #F5F5F5;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding:2%;
+}
+.productsToPrepare{
+    min-height: 25px;
+}
+.product-list-container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding:2%;
+    overflow-y: scroll;
+    border: 2px solid black;
+    border-top-right-radius: 0.75%;
+    border-bottom-right-radius: 0.75%;
+    max-height: 300px;
+}
+.product{
+    background: white;
+    padding: 1%;
+    border-radius: 2%;
+    margin-bottom: 2%;
+    border: 2px solid #eeeeee;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    &:active{
+        transform: scale(0.95);
+    }
+
+    &:hover{
+        box-shadow:0 0 0 5px black;
+    }
+}
+.targetBox{
+display: flex;
+flex-direction: column;
+border:1px solid black;
+padding:1%;
+padding-top: 0.5%;
+padding-bottom: 0.5%;
+margin-top: 1%;
+}
+.target{
+    font-size: large;
+}
+.target-amount{
+    max-width: 25%;
+}
+.closingIcon{
+    position:absolute;
+    top:5%;
+    right: 5%;
+    cursor: pointer;
+}
+.warningMsg{
+color:red;
+border: 2px solid red;
+border-radius: 4px;
+font-size: 120%;
+}
+.greenMsg{
+    color:#27d7a1;
+border: 2px solid #27d7a1;
+border-radius: 4px;
+font-size: 120%;
+}

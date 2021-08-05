@@ -1,0 +1,43 @@
+<div class="centered-content">
+    <div class="product-manager-container">
+        <div class="sidebar has-background-white">
+            <h1 class="title has-text-primary">
+                Menu
+            </h1>
+            <div class="menu">
+                <a class="menu-item is-active" routerLink="/">
+                    <p>Products</p>
+                </a>
+                <a *ngIf="checkRestockHistoryButton()" class="menu-item" routerLink="/restockhistory">
+                    <p>Restock History</p>
+                </a>
+                <a class="menu-item" routerLink="/task-list">
+                    <p>Tasks</p>
+                </a>
+            </div>
+            <button class="button is-primary has-text-white" (click)="logout()"><i class="fas fa-sign-out-alt"></i> &nbsp;Logout</button>
+        </div>
+
+        <div class="product-details-header-container has-background-light">
+            <h1 class="title has-text-primary">
+                {{product?.name}}
+            </h1>
+        
+        <div class="product-details-container has-background-light">
+            <div class="product">
+                <p>Category:  Computers & Office</p><br>
+                <p>Price:  {{product?.price}}$</p><br>
+                <p>Length:  {{product?.length}}cm</p><br>
+                <p>Height:  {{product?.height}}cm</p><br>
+                <p>Weight:  {{product?.weight}}kg</p><br>
+                <p>Amount in stock:  {{product?.numberInStock}}</p><br>
+                <p>Amount shipped:  {{product?.numberShipped}}</p><br>
+                <p>Location:  {{product?.locationInWarehouse}}</p><br>
+            </div>
+            <button *ngIf="checkRestockButton()" class="restockProduct button is-medium is-primary has-text-white" (click)="goToRestock()" >Restock</button>
+            <button class="backToProducts button is-medium is-primary has-text-white" routerLink="/">Back to products</button>
+        </div>
+    </div>
+            
+    </div>
+</div>

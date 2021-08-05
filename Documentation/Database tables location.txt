@@ -1,0 +1,2 @@
+Database tables are located under src/main/resources/db copy
+they are in SQL format

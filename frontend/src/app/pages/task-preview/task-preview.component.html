@@ -1,0 +1,49 @@
+<div class="centered-content">
+    <div class="product-manager-container">
+        <div class="sidebar has-background-white">
+            <h1 class="title has-text-primary">
+                Menu
+            </h1>
+            <div class="menu">
+                <a class="menu-item" routerLink="/">
+                    <p>Products</p>
+                </a>
+                <a *ngIf="checkRestockHistoryButton()" class="menu-item" routerLink="/restockhistory">
+                    <p>Restock History</p>
+                </a>
+                <a class="menu-item is-active" routerLink="/task-list">
+                    <p>Tasks</p>
+                </a>
+            </div>
+            <button class="button is-primary has-text-white" (click)="logout()"><i class="fas fa-sign-out-alt"></i> &nbsp;Logout</button>
+        </div>
+
+        <div class="product-details-header-container has-background-light">
+            <h1 class="title has-text-primary">
+                <p>Task :&nbsp; {{task?.taskID}}</p> <div *ngIf="task?.complete">Status:<i class="fas fa-check-circle"></i></div>
+                <div *ngIf="!task?.complete">Status:<i class="fas fa-times-circle"></i></div>
+            </h1>
+        <div class="product-details-container has-background-light">
+            <div class="task">
+                <p>Authored by:&nbsp;{{taskAuthor?.name}}</p>
+                <div >
+                <div *ngIf="checkFinishedByButton()">Finished By:&nbsp;{{taskFinisher?.name}}</div>
+                <div *ngIf="checkAcceptedByButton()">Accepted By:&nbsp;{{taskFinisher?.name}}</div>
+                <div *ngIf="task?.complete">Finished at:&nbsp;{{task?.completionDate}}</div></div>
+                <P>Description:&nbsp;{{task?.description}}</P>
+                <div class="productBox" *ngIf="productsForTask?.length>0">
+                    List of Products:
+                    <div class="product" *ngFor="let product of productsForTask" [routerLink]="['/product-info',product.productID]">
+                        <p>ProductID: {{product.productID}}</p>
+                        <p>Amount to prepare:{{product.amount}}</p>
+                    </div>
+                </div>
+            </div>
+            <button *ngIf="checkAcceptButton()"  class="acceptTask button is-medium is-primary has-text-white" (click)="acceptTask()" >Accept Task</button>
+            <button *ngIf="checkCompleteButton()"  class="completeTask button is-medium is-primary has-text-white" (click)="completeTask()" >Complete Task</button>
+            <button class="backToTasks button is-medium is-primary has-text-white" routerLink="/task-list">Back to tasks</button>
+        </div>
+    </div>
+            
+    </div>
+</div>

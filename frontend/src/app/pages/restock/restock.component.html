@@ -1,0 +1,20 @@
+<div class="centered-content">
+    <div class="modal-box">
+        <h1 class="title">
+            Product Restock
+        </h1>
+            <div class="control">
+                <div class="field">
+                    <label class="label">Amount to restock</label>
+                    <div class="control">
+                      <input #newAmount class="input is-dark" type="number" placeholder="Amount">
+                    </div>
+                  </div>
+                  <div class="buttons is-right">
+                    <button class="button is-medium" (click)="returnToProductPage()">Cancel</button>
+                    <button class="button is-primary has-text-white is-medium" (click)="restockProduct(newAmount.value)">Confirm</button>
+                  </div>
+                  
+            </div>
+    </div>
+</div>
